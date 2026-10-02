@@ -65,6 +65,7 @@ function Chat() {
                         </>
                     )
                 }
+                <div></div>
 
             </div>
         </>
