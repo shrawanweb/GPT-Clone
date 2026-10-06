@@ -36,7 +36,7 @@ connectDB();
 
 app.get("/", (req, res) => {
     res.json({
-        msg: "test was successful"
+        msg: "UPDATE: test was successful"
     })
 });
 
