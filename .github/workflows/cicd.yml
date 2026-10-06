@@ -24,5 +24,12 @@ jobs:
         working-directory: Backend
         run: npm install
 
-      - name: Restart Backend
-        run: sudo pm2 restart backend
+      - name: Restore environment file
+        run: cp ~/backend-env/.env Backend/.env
+
+      - name: Start or Restart Backend
+        working-directory: Backend
+        run: |
+          sudo pm2 describe backend > /dev/null 2>&1 \
+            && sudo pm2 restart backend --update-env \
+            || sudo pm2 start server.js --name backend
